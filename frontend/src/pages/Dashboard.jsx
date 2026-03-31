@@ -8,8 +8,10 @@ export default function Dashboard() {
     { id: 102, title: 'Feeling Journal', category: 'emotional', description: "Track your stars, levels, and upcoming activities all in one place.", icon: 'mood', colorClass: 'icon-tertiary' }
   ]);
 
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
+
   useEffect(() => {
-    fetch('http://localhost:5000/api/activities')
+    fetch(`${API_BASE}/activity/activities`)
       .then(res => res.json())
       .then(data => {
         if (data && data.activities) {

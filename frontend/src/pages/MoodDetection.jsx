@@ -5,11 +5,13 @@ const MoodDetection = () => {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
+
   const detectMood = async () => {
     setLoading(true);
     // Mocking the detection process
     try {
-      const response = await fetch('http://localhost:5000/api/mood/upload', {
+      const response = await fetch(`${API_BASE}/mood/upload`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ image: "mock-base64-data" })

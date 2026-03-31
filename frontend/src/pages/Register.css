@@ -1,0 +1,175 @@
+.register-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: var(--color-surface-container-lowest);
+    position: relative;
+    overflow: hidden;
+}
+
+.register-card {
+    background-color: white;
+    border-radius: 3rem;
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+}
+
+@media (min-width: 1024px) {
+    .register-card {
+        flex-direction: row;
+        min-height: 650px;
+    }
+}
+
+.register-left {
+    padding: 4rem;
+    background-color: var(--color-primary-container);
+    color: var(--color-on-primary-container);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hand-badge {
+    font-family: var(--font-handwritten);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.register-left h1 {
+    font-family: var(--font-headline);
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.register-left .italic-accent {
+    font-style: italic;
+    color: var(--color-primary);
+}
+
+.register-left p {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+.feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 700;
+}
+
+.feature-item .material-symbols-outlined {
+    background-color: white;
+    color: var(--color-primary);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+/* Right Side */
+.register-right {
+    padding: 4rem;
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.register-right form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-outline);
+}
+
+.input-group input, .input-group select {
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    border: 2px solid var(--color-surface-container-high);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    background-color: var(--color-surface-container-lowest);
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus, .input-group select:focus {
+    border-color: var(--color-primary);
+}
+
+.w-full {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-outline);
+}
+
+.login-link a {
+    color: var(--color-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* Blobs */
+.blob {
+    position: absolute;
+    width: 40rem;
+    height: 40rem;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.blob-1 {
+    background-color: var(--color-primary-container);
+    top: -10rem;
+    right: -10rem;
+}
+
+.blob-2 {
+    background-color: var(--color-secondary-container);
+    bottom: -10rem;
+    left: -10rem;
+}

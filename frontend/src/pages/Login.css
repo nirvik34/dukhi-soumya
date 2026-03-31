@@ -1,0 +1,113 @@
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: var(--color-surface-container-lowest);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-card {
+    background-color: white;
+    border-radius: 3rem;
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+}
+
+@media (min-width: 768px) {
+    .login-card {
+        flex-direction: row;
+        min-height: 500px;
+    }
+}
+
+.login-left {
+    padding: 4rem;
+    background-color: var(--color-secondary-container);
+    color: var(--color-on-secondary-container);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-left h1 {
+    font-family: var(--font-headline);
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.login-left .italic-accent {
+    font-style: italic;
+    color: var(--color-primary);
+}
+
+.login-right {
+    padding: 4rem;
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-right form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-outline);
+}
+
+.input-group input {
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    border: 2px solid var(--color-surface-container-high);
+    font-size: 1rem;
+    background-color: var(--color-surface-container-lowest);
+    outline: none;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--color-outline);
+}
+
+.register-link a {
+    color: var(--color-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.blob {
+    position: absolute;
+    width: 35rem;
+    height: 35rem;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 1;
+    opacity: 0.2;
+}
+
+.blob-1 { background-color: var(--color-primary-container); top: -5rem; right: -5rem; }
+.blob-2 { background-color: var(--color-tertiary-container); bottom: -5rem; left: -5rem; }

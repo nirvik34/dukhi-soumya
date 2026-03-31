@@ -55,6 +55,19 @@ NeuroLearn is a sensory-friendly, "Soft Maximalist" educational platform designe
    npm run dev
    ```
 
+## 🐳 Hosting with Docker
+
+NeuroLearn is fully containerized for easy deployment.
+
+1. **Build and Start:**
+   ```bash
+   docker-compose up --build
+   ```
+   The frontend will be available at `http://localhost:80` and the backend at `http://localhost:5000`.
+
+2. **Environment Configuration:**
+   Modify the `.env` files in the `frontend/` and `backend/` directories to match your production environment before building.
+
 ## 🎨 Design Philosophy
 NeuroLearn follows the **Soft Maximalism** (Guided Journal) philosophy:
 - **No-Line Rule:** No rigid borders or lines; structure is defined by tonal layering and spacing.

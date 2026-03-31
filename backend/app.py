@@ -1,9 +1,14 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
+from dotenv import load_dotenv
+import os
 from database.db import init_db
 from routes.mood_routes import mood_bp
 from routes.activity_routes import activity_bp
 from routes.auth_routes import auth_bp
+
+# Load environment variables
+load_dotenv()
 
 def create_app():
     app = Flask(__name__)
