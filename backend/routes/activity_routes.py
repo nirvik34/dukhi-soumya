@@ -4,7 +4,7 @@ from datetime import datetime
 
 activity_bp = Blueprint('activity', __name__)
 
-@activity_bp.route('/', methods=['GET'])
+@activity_bp.route('/activities', methods=['GET'])
 def get_activities():
     # Return placeholder activities or combine with DB records
     activities = [
