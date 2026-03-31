@@ -4,17 +4,34 @@ import './MoodDetection.css';
 const MoodDetection = () => {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [image, setImage] = useState(null);
+  const [preview, setPreview] = useState(null);
 
   const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result);
+        setImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const detectMood = async () => {
+    if (!image) {
+        alert("Please upload an image first!");
+        return;
+    }
     setLoading(true);
-    // Mocking the detection process
     try {
       const response = await fetch(`${API_BASE}/mood/upload`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ image: "mock-base64-data" })
+        body: JSON.stringify({ image })
       });
       const data = await response.json();
       if (data.status === 'success') {
@@ -22,10 +39,11 @@ const MoodDetection = () => {
       }
     } catch (error) {
       console.error("Error detecting mood:", error);
-      // Fallback fallback
       setResult({
-        primary_emotion: "Happy",
-        confidences: { "Happy": 92, "Neutral": 7, "Sad": 1 }
+        primary_emotion: "Neutral",
+        reasoning: "Analysis failed, but we're still here to help.",
+        suggested_activity: "Take a sensory break.",
+        confidences: { "Neutral": 100 }
       });
     }
     setLoading(false);
@@ -50,21 +68,41 @@ const MoodDetection = () => {
         {/* Left: Upload Card */}
         <div className="mood-card upload-card shadow-soft">
           <div className="upload-dropzone">
-            <div className="icon-group">
-              <div className="icon-circle primary-circle">
-                <span className="material-symbols-outlined">photo_camera</span>
+            {preview ? (
+              <div className="image-preview-wrapper">
+                <img src={preview} alt="Preview" className="capture-preview" />
+                <button className="btn-icon remove-img" onClick={() => {setPreview(null); setImage(null);}}>
+                    <span className="material-symbols-outlined">close</span>
+                </button>
               </div>
-              <div className="icon-circle secondary-circle">
-                <span className="material-symbols-outlined">folder_open</span>
-              </div>
-            </div>
-            <h3>Capture or Upload</h3>
-            <p>Click to take a selfie or browse files</p>
-            <button className="btn-primary" onClick={detectMood} disabled={loading}>
-              <span className="material-symbols-outlined">search</span>
-              {loading ? "Detecting..." : "Detect Mood"}
+            ) : (
+              <>
+                <div className="icon-group">
+                  <div className="icon-circle primary-circle">
+                    <span className="material-symbols-outlined">photo_camera</span>
+                  </div>
+                  <div className="icon-circle secondary-circle">
+                    <span className="material-symbols-outlined">folder_open</span>
+                  </div>
+                </div>
+                <h3>Capture or Upload</h3>
+                <p>Click to take a selfie or browse files</p>
+              </>
+            )}
+            
+            <input 
+              type="file" 
+              accept="image/*" 
+              onChange={handleImageChange} 
+              id="mood-upload-input" 
+              style={{display: 'none'}} 
+            />
+            
+            <button className="btn-primary" onClick={() => !preview ? document.getElementById('mood-upload-input').click() : detectMood()} disabled={loading}>
+              <span className="material-symbols-outlined">{loading ? "hourglass_top" : (preview ? "psychology" : "file_upload")}</span>
+              {loading ? "Analyzing..." : (preview ? "Analyze Mood" : "Upload Image")}
             </button>
-            <p className="privacy-note">Privacy Protected & Secure</p>
+            <p className="privacy-note">Privacy Protected & AI-Powered</p>
           </div>
         </div>
 
@@ -72,9 +110,13 @@ const MoodDetection = () => {
         <div className="mood-card result-card shadow-soft">
           <div className="result-content">
             <div className="emotion-display">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm8ZnjTse9HI_UfibDnWRPO3lwdMg96UDPLAahqGPPLRxa6_pUGUkqC6OMRABKmk_pr8I28UAjpbaUUi-XPBgyhvhNzMWnoMlZljwqUItJW2fhZd5K-H7av9pTleKVNgbMkvOZDdhkS7D1bqDqVOsm4cK9EvtxcJ_RvwoXXOJSYYxlzrxCm8_8X-ZozMEegBt0g8R99o9qHomxvG5AUsC9owk2lYruFYyazSMmehYicbIGiA-fybI-ADtsy_fL0Clrl1XJZQdbD80" alt="Feeling" className="emotion-illustration" />
+              {result?.image_url ? (
+                  <img src={result.image_url} alt="Analyzed" className="emotion-illustration rounded" />
+              ) : (
+                  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm8ZnjTse9HI_UfibDnWRPO3lwdMg96UDPLAahqGPPLRxa6_pUGUkqC6OMRABKmk_pr8I28UAjpbaUUi-XPBgyhvhNzMWnoMlZljwqUItJW2fhZd5K-H7av9pTleKVNgbMkvOZDdhkS7D1bqDqVOsm4cK9EvtxcJ_RvwoXXOJSYYxlzrxCm8_8X-ZozMEegBt0g8R99o9qHomxvG5AUsC9owk2lYruFYyazSMmehYicbIGiA-fybI-ADtsy_fL0Clrl1XJZQdbD80" alt="Feeling" className="emotion-illustration" />
+              )}
               <h2>{result ? result.primary_emotion : "Detecting..."}</h2>
-              <p className="mood-quote italic">"You're feeling great today!"</p>
+              <p className="mood-quote italic">{result?.reasoning ? `"${result.reasoning}"` : '"Waiting for your vibe check..."'}</p>
             </div>
 
             <div className="confidence-bars">
@@ -82,22 +124,22 @@ const MoodDetection = () => {
                 <div className="bar-group" key={emotion}>
                   <div className="bar-labels">
                     <span className="emotion-name">{emotion}</span>
-                    <span className="confidence-value">{value}%</span>
+                    <span className="confidence-value">{typeof value === 'number' ? (value * 100).toFixed(0) : value}%</span>
                   </div>
                   <div className="bar-wrapper">
-                    <div className="bar-fill" style={{ width: `${value}%`, opacity: value < 20 ? 0.3 : 1 }}></div>
+                    <div className="bar-fill" style={{ width: `${typeof value === 'number' ? value * 100 : value}%` }}></div>
                   </div>
                 </div>
               ))}
-              {!result && <p>Waiting for analysis...</p>}
+              {!result && <div className="placeholder-bars"><div className="shimmer-bar"></div><div className="shimmer-bar"></div></div>}
             </div>
 
             <div className="mood-insights">
               <h4>
                 <span className="material-symbols-outlined">lightbulb</span>
-                Mood Insights
+                NeuroInsight
               </h4>
-              <p>Your facial markers suggest high engagement and positive valence. This is a perfect time for creative tasks or social learning.</p>
+              <p>{result?.suggested_activity || "Upload your photo to get a personalized sensory activity suggestion based on your current state."}</p>
             </div>
           </div>
         </div>
