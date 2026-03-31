@@ -169,3 +169,81 @@
   background-color: var(--color-secondary-container);
   color: var(--color-secondary);
 }
+
+/* Games grid */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.game-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem 2rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.game-icon {
+  font-size: 2.8rem !important;
+  flex-shrink: 0;
+  color: var(--color-on-surface);
+  opacity: 0.8;
+}
+
+.section-icon {
+  font-size: 1.75rem !important;
+  vertical-align: middle;
+  margin-right: 0.35rem;
+  color: var(--color-primary);
+}
+
+.game-info {
+  flex: 1;
+}
+
+.game-info h3 {
+  font-family: var(--font-headline);
+  font-size: 1.3rem;
+  margin-bottom: 0.25rem;
+}
+
+.game-desc {
+  font-size: 0.82rem;
+  color: var(--color-outline);
+  margin-bottom: 0.5rem;
+}
+
+.game-meta {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.meta-pill {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  background: rgba(0,0,0,0.06);
+}
+
+.game-arrow {
+  font-size: 2rem !important;
+  color: var(--color-primary);
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.game-card:hover .game-arrow {
+  opacity: 1;
+}
+

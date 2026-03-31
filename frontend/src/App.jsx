@@ -8,6 +8,10 @@ import ParentDashboard from './pages/ParentDashboard';
 import Activities from './pages/Activities';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import BubblePop from './pages/games/BubblePop';
+import SoundMatch from './pages/games/SoundMatch';
+import ColorSorting from './pages/games/ColorSorting';
+import FeelingJournal from './pages/games/FeelingJournal';
 import Navbar from './components/Navbar';
 import { Toaster } from 'react-hot-toast';
 import './App.css';
@@ -26,6 +30,10 @@ function App() {
         <Route path="/activities" element={<Activities />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/games/bubble-pop" element={<BubblePop />} />
+        <Route path="/games/sound-match" element={<SoundMatch />} />
+        <Route path="/games/color-sorting" element={<ColorSorting />} />
+        <Route path="/games/feeling-journal" element={<FeelingJournal />} />
       </Routes>
     </div>
   );

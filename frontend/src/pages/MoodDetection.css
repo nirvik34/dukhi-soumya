@@ -75,7 +75,7 @@
 .upload-card .upload-dropzone {
   border: 2px dashed var(--color-outline-variant);
   border-radius: 2rem;
-  padding: 4rem 2rem;
+  padding: 3rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -124,7 +124,7 @@
 
 .upload-card p {
   color: #5d3f38;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .btn-primary {
@@ -150,10 +150,11 @@
 .btn-primary:disabled {
   opacity: 0.7;
   cursor: not-allowed;
+  transform: none;
 }
 
 .privacy-note {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -161,21 +162,148 @@
   color: var(--color-outline);
 }
 
-/* Result Card */
+/* ===== Camera Styles ===== */
+.camera-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.camera-feed {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 1.5rem;
+  border: 3px solid var(--color-primary-container);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: scaleX(-1); /* Mirror for selfie */
+}
+
+.camera-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-capture {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(165, 59, 34, 0.25);
+}
+
+.btn-capture:hover {
+  transform: scale(1.08);
+}
+
+.btn-cancel {
+  background-color: var(--color-surface-container-high);
+  color: var(--color-on-surface);
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+  background-color: var(--color-secondary-container);
+}
+
+.btn-cancel:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===== Captured Preview ===== */
+.captured-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.captured-preview {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 1.5rem;
+  border: 3px solid var(--color-secondary-container);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== Error Message ===== */
+.error-message {
+  margin-top: 1.5rem;
+  padding: 1rem 1.5rem;
+  background-color: #fff0ed;
+  color: #c0392b;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.error-message .material-symbols-outlined {
+  font-size: 1.25rem;
+}
+
+/* ===== Result Card ===== */
 .result-content {
   text-align: center;
 }
 
-.emotion-illustration {
-  width: 8rem;
-  height: 8rem;
-  object-fit: contain;
-  margin-bottom: 1.5rem;
+.emotion-icon-large {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  background-color: var(--color-primary-container);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
   transition: transform 0.5s ease;
 }
 
-.emotion-illustration:hover {
-  transform: rotate(12deg);
+.emotion-icon-large:hover {
+  transform: rotate(12deg) scale(1.1);
+}
+
+.emotion-icon-large .material-symbols-outlined {
+  font-size: 3.5rem;
+  color: var(--color-primary);
+}
+
+.emotion-icon-large.waiting {
+  background-color: var(--color-surface-container-high);
+  animation: pulse-waiting 2s ease-in-out infinite;
+}
+
+.emotion-icon-large.waiting .material-symbols-outlined {
+  color: var(--color-outline);
+}
+
+@keyframes pulse-waiting {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.05); opacity: 1; }
 }
 
 .result-content h2 {
@@ -188,11 +316,12 @@
 
 .mood-quote {
   font-family: var(--font-handwritten);
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   color: #5d3f38;
   margin-bottom: 2.5rem;
 }
 
+/* ===== Confidence Bars ===== */
 .confidence-bars {
   width: 100%;
   margin-bottom: 2.5rem;
@@ -200,15 +329,15 @@
 }
 
 .bar-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .bar-labels {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .emotion-name {
@@ -217,10 +346,11 @@
 
 .confidence-value {
   color: var(--color-primary);
+  font-variant-numeric: tabular-nums;
 }
 
 .bar-wrapper {
-  height: 1rem;
+  height: 0.85rem;
   background-color: var(--color-surface-container-high);
   border-radius: 9999px;
   overflow: hidden;
@@ -231,9 +361,32 @@
   height: 100%;
   background-color: var(--color-primary);
   border-radius: 9999px;
-  transition: width 0.8s ease-in-out;
+  transition: width 1s ease-in-out;
 }
 
+.bar-placeholder {
+  width: 0%;
+  background-color: var(--color-outline-variant);
+  opacity: 0.2;
+}
+
+.waiting-bars .bar-wrapper {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-surface-container-high) 0%,
+    var(--color-surface-container) 50%,
+    var(--color-surface-container-high) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ===== Mood Insights ===== */
 .mood-insights {
   background-color: rgba(196, 235, 223, 0.3);
   padding: 1.5rem;
@@ -257,7 +410,7 @@
   line-height: 1.5;
 }
 
-/* Suggested Activities */
+/* ===== Suggested Activities ===== */
 .suggested-activities-section {
   margin-top: 8rem;
 }

@@ -1,0 +1,272 @@
+.journal-page .mood-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+.mood-btn {
+  padding: 1.5rem 0.5rem;
+  border-radius: 1.5rem;
+  border: 3px solid var(--color-surface-container-high);
+  background: white;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.25s;
+}
+
+.mood-btn:hover {
+  transform: translateY(-4px);
+  border-color: var(--mood-color);
+  background: color-mix(in srgb, var(--mood-color) 12%, white);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.mood-emoji {
+  font-size: 2.5rem;
+}
+
+.mood-label {
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--color-outline);
+}
+
+/* Step indicators */
+.step-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.step-dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  background: var(--color-surface-container);
+  color: var(--color-outline);
+  transition: all 0.3s;
+}
+
+.step-dot.active {
+  background: var(--color-primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Journal step */
+.journal-step {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.journal-step h2 {
+  font-family: var(--font-headline);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Selected mood display */
+.selected-mood-display {
+  border-radius: 2rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.big-emoji {
+  font-size: 3.5rem;
+}
+
+.selected-mood-display h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+/* Intensity slider */
+.intensity-slider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.intensity-label-sm {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-outline);
+  white-space: nowrap;
+}
+
+.slider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 10px;
+  border-radius: 5px;
+  background: var(--color-surface-container-high);
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.intensity-visual {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.intensity-dot {
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid var(--color-surface-container-high);
+  opacity: 0.3;
+  transition: all 0.3s;
+}
+
+.intensity-dot.filled {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Prompt */
+.prompt-card {
+  background: var(--color-primary-container);
+  border-radius: 2rem;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.prompt-icon {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.prompt-card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0;
+}
+
+.journal-textarea {
+  width: 100%;
+  border: 2px solid var(--color-surface-container-high);
+  border-radius: 1.5rem;
+  padding: 1.25rem;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: none;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.journal-textarea:focus {
+  border-color: var(--color-primary);
+}
+
+.char-count {
+  text-align: right;
+  font-size: 0.75rem;
+  color: var(--color-outline);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Done card */
+.journal-done-card .affirmation {
+  color: var(--color-outline);
+  max-width: 400px;
+  margin: 0.5rem auto 1.5rem;
+  line-height: 1.6;
+}
+
+.entry-summary {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: 1.5rem;
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.summary-emoji {
+  font-size: 2.5rem;
+}
+
+.summary-text {
+  font-style: italic;
+  color: var(--color-outline);
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+}
+
+/* Past entries */
+.past-entries {
+  max-width: 500px;
+  margin: 3rem auto 0;
+}
+
+.past-entries h3 {
+  font-size: 1rem;
+  color: var(--color-outline);
+  margin-bottom: 1rem;
+}
+
+.entries-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.entry-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.entry-time {
+  color: var(--color-outline);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .journal-page .mood-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

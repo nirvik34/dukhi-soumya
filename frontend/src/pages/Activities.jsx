@@ -1,12 +1,22 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Activities.css';
 
 const Activities = () => {
+  const navigate = useNavigate();
+
   const categories = [
-    { title: "Sensory", count: 12, icon: "high-quality", color: "var(--color-secondary-container)" },
+    { title: "Sensory", count: 12, icon: "sensors", color: "var(--color-secondary-container)" },
     { title: "Cognitive", count: 8, icon: "psychology", color: "var(--color-primary-container)" },
     { title: "Language", count: 15, icon: "translate", color: "var(--color-tertiary-container)" },
     { title: "Motor Skills", count: 10, icon: "directions_run", color: "var(--color-surface-container-high)" },
+  ];
+
+  const games = [
+    { title: "Bubble Pop", time: "30s", level: "Easy", icon: "bubble_chart", route: "/games/bubble-pop", desc: "Pop floating bubbles! Smaller = more points.", color: "#e3f2fd" },
+    { title: "Sound Match", time: "5m", level: "Medium", icon: "music_note", route: "/games/sound-match", desc: "Listen & repeat the rhythm pattern.", color: "#f3e5f5" },
+    { title: "Color Sorting", time: "3m", level: "Easy", icon: "palette", route: "/games/color-sorting", desc: "Sort colors into the right buckets.", color: "#e8f5e9" },
+    { title: "Feeling Journal", time: "5m", level: "Calm", icon: "auto_stories", route: "/games/feeling-journal", desc: "Check in with your emotions.", color: "#fff8e1" },
   ];
 
   return (
@@ -26,9 +36,10 @@ const Activities = () => {
         ))}
       </div>
 
+      {/* Playable Games Section */}
       <section className="featured-section">
         <div className="section-title-row">
-          <h2>Recommendations for You</h2>
+          <h2><span className="material-symbols-outlined section-icon">stadia_controller</span> Play Now</h2>
           <div className="filter-pills">
              <span className="pill active">All</span>
              <span className="pill">Calming</span>
@@ -37,8 +48,30 @@ const Activities = () => {
           </div>
         </div>
 
+        <div className="games-grid">
+          {games.map((game, idx) => (
+            <div key={idx} className="game-card shadow-soft" style={{ backgroundColor: game.color }}
+                 onClick={() => navigate(game.route)}>
+              <span className="material-symbols-outlined game-icon">{game.icon}</span>
+              <div className="game-info">
+                <h3>{game.title}</h3>
+                <p className="game-desc">{game.desc}</p>
+                <div className="game-meta">
+                  <span className="meta-pill">{game.time}</span>
+                  <span className="meta-pill">{game.level}</span>
+                </div>
+              </div>
+              <span className="material-symbols-outlined game-arrow">play_circle</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="featured-section">
+        <div className="section-title-row">
+          <h2>More Activities</h2>
+        </div>
         <div className="activities-grid">
-          <ActivityItem title="Bubble Pop" time="5m" level="Easy" img="https://images.unsplash.com/photo-1559599189-fe84dea4eb79?auto=format&fit=crop&q=80&w=400" />
           <ActivityItem title="Sand Drawing" time="15m" level="Medium" img="https://images.unsplash.com/photo-1506190500382-d27870075d6b?auto=format&fit=crop&q=80&w=400" />
           <ActivityItem title="Pattern Master" time="10m" level="Medium" img="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=400" />
           <ActivityItem title="Story Weaver" time="20m" level="Hard" img="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=400" />

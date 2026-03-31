@@ -1,0 +1,143 @@
+.sound-match-page .sound-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+.sound-btn {
+  padding: 2rem 1rem;
+  border-radius: 2rem;
+  border: 3px solid var(--color-surface-container-high);
+  background: white;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.sound-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  border-color: var(--color-primary);
+}
+
+.sound-btn.active {
+  transform: scale(1.12);
+  border-color: var(--color-primary);
+  background: var(--color-primary-container);
+  box-shadow: 0 0 30px rgba(165, 59, 34, 0.25);
+}
+
+.sound-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sound-emoji {
+  font-size: 3rem;
+}
+
+.sound-label {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--color-outline);
+}
+
+/* Sound status */
+.sound-status {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.status-text {
+  font-weight: 800;
+  font-size: 1.2rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  display: inline-block;
+}
+
+.status-text.listening {
+  background: var(--color-secondary-container);
+  color: var(--color-on-secondary-container);
+  animation: pulse 1s infinite alternate;
+}
+
+.status-text.your-turn {
+  background: var(--color-primary-container);
+  color: var(--color-on-primary-container);
+}
+
+.status-text.correct {
+  background: #c8e6c9;
+  color: #2e7d32;
+  animation: correctBounce 0.5s ease;
+}
+
+.status-text.wrong {
+  background: #ffcdd2;
+  color: #c62828;
+  animation: shake 0.5s;
+}
+
+@keyframes pulse {
+  from { opacity: 0.7; }
+  to { opacity: 1; }
+}
+
+@keyframes correctBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+/* Pattern dots */
+.pattern-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.pattern-dots .dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-surface-container-high);
+  transition: all 0.3s;
+}
+
+.pattern-dots .dot.correct {
+  background: #66bb6a;
+}
+
+.pattern-dots .dot.wrong {
+  background: #ef5350;
+}
+
+.pattern-dots .dot.current {
+  transform: scale(1.4);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Level HUD */
+.level-hud {
+  background: var(--color-tertiary-container);
+  color: var(--color-on-tertiary-container);
+  font-weight: 800;
+}
+
+.lives-hud {
+  background: var(--color-surface-container);
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
