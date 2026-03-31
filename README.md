@@ -68,6 +68,24 @@ NeuroLearn is fully containerized for easy deployment.
 2. **Environment Configuration:**
    Modify the `.env` files in the `frontend/` and `backend/` directories to match your production environment before building.
 
+## 🌐 Production Configuration (Render/Heroku/etc)
+
+When deploying to production (e.g., Render), do **not** upload your `.env` files. Instead, configure them in the hosting dashboard:
+
+### 1. Backend (Web Service)
+- Go to **Environment** tab in Render.
+- Add `MONGO_URI`: Your MongoDB Atlas connection string.
+- Add `SECRET_KEY`: A long random string.
+- Add `FLASK_ENV`: `production`.
+- The `PORT` will be automatically handled by Render.
+
+### 2. Frontend (Static Site)
+- Go to **Environment** tab in Render.
+- Add `VITE_API_BASE_URL`: `https://dukhi-soumya.onrender.com/api` (match your backend URL).
+- **Note:** Vite requires these variables to be present **at build time**. If you change this variable, you must trigger a new manual deploy (Clear Cache and Deploy).
+
+---
+
 ## 🎨 Design Philosophy
 NeuroLearn follows the **Soft Maximalism** (Guided Journal) philosophy:
 - **No-Line Rule:** No rigid borders or lines; structure is defined by tonal layering and spacing.
