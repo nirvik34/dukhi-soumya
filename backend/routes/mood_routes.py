@@ -11,15 +11,18 @@ def upload_image():
     base64_image = data.get('image') if data else None
     if not base64_image:
         return jsonify({"status": "error", "message": "No image provided"}), 400
-    
-    result = analyze_image(base64_image)
-    record = {
-        "emotion": result['primary_emotion'],
-        "confidences": result['confidences'],
-        "timestamp": datetime.now().isoformat()
-    }
-    save_record('moods', record)
-    return jsonify({"status": "success", "results": result})
+
+    try:
+        result = analyze_image(base64_image)
+        record = {
+            "emotion": result['primary_emotion'],
+            "confidences": result['confidences'],
+            "timestamp": datetime.now().isoformat()
+        }
+        save_record('moods', record)
+        return jsonify({"status": "success", "results": result})
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
 
 @mood_bp.route('/history', methods=['GET'])
 def get_history():
