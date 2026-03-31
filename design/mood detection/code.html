@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Caveat:wght@400;700&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-fixed-variant": "#2a4d45",
+              "on-tertiary-container": "#2a4d45",
+              "on-secondary": "#ffffff",
+              "on-error-container": "#93000a",
+              "surface-container-lowest": "#ffffff",
+              "background": "#fff8f1",
+              "primary-fixed": "#ffdad2",
+              "surface-dim": "#dfd9d1",
+              "outline": "#926f67",
+              "surface": "#fff8f1",
+              "surface-container": "#f4ede5",
+              "on-background": "#1e1b17",
+              "surface-container-high": "#eee7df",
+              "primary": "#a53b22",
+              "on-primary-fixed-variant": "#84240d",
+              "surface-container-highest": "#e8e1da",
+              "on-primary-container": "#84240d",
+              "secondary-fixed-dim": "#93d3c3",
+              "error": "#ba1a1a",
+              "on-secondary-fixed-variant": "#045044",
+              "on-primary": "#ffffff",
+              "on-secondary-fixed": "#00201a",
+              "inverse-on-surface": "#f7f0e8",
+              "on-secondary-container": "#045044",
+              "primary-container": "#ffdad2",
+              "on-tertiary-fixed": "#00201a",
+              "secondary": "#28695c",
+              "on-tertiary": "#ffffff",
+              "primary-fixed-dim": "#ffb4a3",
+              "secondary-container": "#afefdf",
+              "tertiary-fixed-dim": "#a8cec3",
+              "tertiary": "#42655c",
+              "tertiary-fixed": "#c4ebdf",
+              "on-surface-variant": "#5d3f38",
+              "secondary-fixed": "#afefdf",
+              "surface-container-low": "#f9f3eb",
+              "outline-variant": "#e7bdb3",
+              "on-surface": "#1e1b17",
+              "inverse-surface": "#33302b",
+              "on-primary-fixed": "#3d0700",
+              "inverse-primary": "#ffb4a3",
+              "tertiary-container": "#c4ebdf",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "surface-bright": "#fff8f1",
+              "surface-variant": "#e8e1da",
+              "surface-tint": "#a53b22"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Be Vietnam Pro"],
+              "handwritten": ["Caveat"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .wavy-divider {
+            mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,149.3C672,149,768,203,864,213.3C960,224,1056,192,1152,165.3C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+        }
+    </style>
+</head>
+<body class="bg-[#C8EFE3] font-body text-on-surface min-h-screen">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 dark:bg-stone-900/70 backdrop-blur-md shadow-[0_20px_40px_rgba(93,63,56,0.06)] flex justify-between items-center px-8 h-20">
+<div class="flex items-center gap-2 text-2xl font-headline italic font-bold text-stone-900 dark:text-stone-100">
+            NeuroLearn
+        </div>
+<div class="hidden md:flex gap-6 items-center font-body font-medium text-sm">
+<a class="text-stone-600 dark:text-stone-400 px-2 hover:bg-orange-50 dark:hover:bg-orange-900/30 hover:rounded-full transition-all duration-300" href="#">Home</a>
+<a class="text-stone-600 dark:text-stone-400 px-2 hover:bg-orange-50 dark:hover:bg-orange-900/30 hover:rounded-full transition-all duration-300" href="#">Dashboard</a>
+<a class="text-orange-700 dark:text-orange-300 border-b-4 border-orange-500 rounded-full pb-1 px-2" href="#">Mood</a>
+<a class="text-stone-600 dark:text-stone-400 px-2 hover:bg-orange-50 dark:hover:bg-orange-900/30 hover:rounded-full transition-all duration-300" href="#">Activities</a>
+<a class="text-stone-600 dark:text-stone-400 px-2 hover:bg-orange-50 dark:hover:bg-orange-900/30 hover:rounded-full transition-all duration-300" href="#">Communicate</a>
+<a class="text-stone-600 dark:text-stone-400 px-2 hover:bg-orange-50 dark:hover:bg-orange-900/30 hover:rounded-full transition-all duration-300" href="#">Parent</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer text-2xl">account_circle</span>
+</div>
+</nav>
+<main class="pt-32 pb-32 px-6 max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="mb-16 text-center">
+<h1 class="text-5xl font-headline font-bold mb-4">How are we <span class="italic text-primary">feeling</span> today?</h1>
+<p class="text-lg text-on-surface-variant max-w-2xl mx-auto">Upload a photo or use your camera, and NeuroLearn will help you understand your emotions and suggest the perfect activity.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 relative">
+<!-- Doodle Arrow Decoration (Absolute Positioned) -->
+<div class="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 opacity-40">
+<svg fill="none" height="60" viewbox="0 0 120 60" width="120" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 30C5 30 35 5 60 30C85 55 115 30 115 30" stroke="#a53b22" stroke-dasharray="8 8" stroke-linecap="round" stroke-width="3"></path>
+<path d="M105 20L115 30L105 40" stroke="#a53b22" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+</svg>
+</div>
+<!-- Left: Upload Card -->
+<div class="bg-surface rounded-xl p-10 shadow-soft">
+<div class="border-2 border-dashed border-outline-variant rounded-[24px] p-12 flex flex-col items-center justify-center bg-surface-container-low text-center min-h-[450px]">
+<div class="flex gap-6 mb-8">
+<div class="w-20 h-20 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container shadow-sm">
+<span class="material-symbols-outlined text-4xl">photo_camera</span>
+</div>
+<div class="w-20 h-20 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shadow-sm">
+<span class="material-symbols-outlined text-4xl">folder_open</span>
+</div>
+</div>
+<h3 class="text-2xl font-headline font-bold mb-2">Capture or Upload</h3>
+<p class="text-on-surface-variant mb-10 font-medium">Click to take a selfie or browse files</p>
+<button class="bg-primary text-on-primary px-10 py-5 rounded-full font-bold text-lg flex items-center gap-3 hover:scale-105 active:scale-95 transition-all shadow-lg">
+<span class="material-symbols-outlined">search</span>
+                        Detect Mood
+                    </button>
+<p class="mt-8 text-sm text-outline font-label uppercase tracking-widest">Privacy Protected &amp; Secure</p>
+</div>
+</div>
+<!-- Right: Result Card -->
+<div class="bg-surface rounded-xl p-10 shadow-soft flex flex-col justify-between">
+<div class="flex flex-col items-center text-center">
+<div class="text-8xl mb-4 transform hover:rotate-12 transition-transform duration-300"><img alt="Cheerful smiling child illustration" class="w-32 h-32 object-contain mx-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm8ZnjTse9HI_UfibDnWRPO3lwdMg96UDPLAahqGPPLRxa6_pUGUkqC6OMRABKmk_pr8I28UAjpbaUUi-XPBgyhvhNzMWnoMlZljwqUItJW2fhZd5K-H7av9pTleKVNgbMkvOZDdhkS7D1bqDqVOsm4cK9EvtxcJ_RvwoXXOJSYYxlzrxCm8_8X-ZozMEegBt0g8R99o9qHomxvG5AUsC9owk2lYruFYyazSMmehYicbIGiA-fybI-ADtsy_fL0Clrl1XJZQdbD80"/></div>
+<h2 class="text-4xl font-headline font-bold text-secondary">Happy</h2>
+<p class="text-xl font-handwritten font-bold text-on-surface-variant mt-2 mb-8 italic">"You're feeling great today!"</p>
+<!-- Confidence Bars -->
+<div class="w-full space-y-6 mb-8 text-left">
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-bold text-sm text-on-surface-variant">Happy</span>
+<span class="font-bold text-sm text-primary">92%</span>
+</div>
+<div class="h-4 w-full bg-surface-container-high rounded-full overflow-hidden border border-outline-variant/20">
+<div class="h-full bg-primary rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-bold text-sm text-on-surface-variant">Neutral</span>
+<span class="font-bold text-sm text-primary">7%</span>
+</div>
+<div class="h-4 w-full bg-surface-container-high rounded-full overflow-hidden border border-outline-variant/20">
+<div class="h-full bg-primary rounded-full opacity-40" style="width: 7%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-bold text-sm text-on-surface-variant">Sad</span>
+<span class="font-bold text-sm text-primary">1%</span>
+</div>
+<div class="h-4 w-full bg-surface-container-high rounded-full overflow-hidden border border-outline-variant/20">
+<div class="h-full bg-primary rounded-full opacity-20" style="width: 1%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-tertiary-container/30 p-6 rounded-lg">
+<h4 class="font-headline font-bold text-tertiary flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined">lightbulb</span>
+                        Mood Insights
+                    </h4>
+<p class="text-sm text-on-tertiary-container">Your facial markers suggest high engagement and positive valence. This is a perfect time for creative tasks or social learning.</p>
+</div>
+</div>
+</div>
+<!-- Suggested Activities -->
+<section class="mt-24">
+<div class="flex items-end justify-between mb-10">
+<div>
+<span class="font-handwritten text-2xl text-primary block mb-2 underline decoration-wavy">Personalized for You</span>
+<h2 class="text-4xl font-headline font-bold">Suggested Activities</h2>
+</div>
+<button class="text-primary font-bold flex items-center gap-1 hover:gap-3 transition-all">
+                    View All Activities <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Activity Card 1 -->
+<div class="group bg-surface rounded-lg p-6 shadow-soft hover:bg-primary-container/20 transition-all cursor-pointer">
+<div class="rounded-lg overflow-hidden mb-6 h-48">
+<img alt="Colorful art supplies" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Close up of vibrant paint brushes and colorful palette on a wooden table with soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe15522zdTh70SGebfxuh6DtXJ0UzftHzbXwnBhpYCp8A1HnJWJ8rbK7aUuCShUTVs1Ks8rHjepA3goqYUrGTEOsGfIk9zgID1akWzmxphMSABPIDvlYm7S3zEiuQNx8kYvufBEMe6RCPqfiVlKFhm0D0zqnIjdhM5Bkg3KWBK3skSMrVTWm2OaS21AbDhnCzGpuFuivcK1IbMTkDsLFFC6lo_Lwx22TfXEbiieDHWuAuxEvZLlwXgsU-xxOUNaY_5Lb0RwqvSamg"/>
+</div>
+<div class="flex items-center gap-2 mb-3">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Cognitive</span>
+<span class="text-outline text-xs">15 mins</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-2">Color Matching Game</h3>
+<p class="text-on-surface-variant text-sm mb-4 leading-relaxed">Strengthen visual recognition and sorting skills through interactive color puzzles.</p>
+</div>
+<!-- Activity Card 2 -->
+<div class="group bg-surface rounded-lg p-6 shadow-soft hover:bg-primary-container/20 transition-all cursor-pointer">
+<div class="rounded-lg overflow-hidden mb-6 h-48">
+<img alt="Child playing music" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Toddler's hands playing a colorful toy xylophone on a light neutral carpet, bright and airy photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuz8XeDGvHY84wEGttGPzWmB3WZNOc3HSAzKXDawNNzLJ7AfRj9igKU6k3W4SA5fG0TZM_wOsCRNW9oX1SiCJJUw5HmpzdunwuSEeovQNIpErM3jVf_oMKHFiCKIpQt-w0gZ-TpEBzupHCUVrM5CTVvkjVVvpqxgY4nPfTXgLPwl-g5ny2NQ0N3W3vCPllNS0OYO_ffXo-usFUZdLod9_7aooABRM0RqCjm0KOmM2UxdZsxmgF_v1MHxZgZ1eJNkJbyj71n4Z4zFw"/>
+</div>
+<div class="flex items-center gap-2 mb-3">
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Sensory</span>
+<span class="text-outline text-xs">10 mins</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-2">Music &amp; Rhythm</h3>
+<p class="text-on-surface-variant text-sm mb-4 leading-relaxed">Explore cause-and-effect and auditory processing with playful instrument sounds.</p>
+</div>
+<!-- Activity Card 3 -->
+<div class="group bg-surface rounded-lg p-6 shadow-soft hover:bg-primary-container/20 transition-all cursor-pointer">
+<div class="rounded-lg overflow-hidden mb-6 h-48">
+<img alt="Storybook illustration" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Open illustrated children's storybook featuring whimsical forest animals in a painterly watercolor art style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnUp6HkGpOBkqgmoUaFHZowmMQsmY5ejz3pMdRwnjoeFOAd8Twp-ysS1oeAcWbzMFhhi4BZwljNNKRkfT2KzfSVE4Nz8oBwgnjWffrsQb6YFcdU8ENhrxBOD_EvdqYxs1BGzfrvqzJjmAkmz-CJty9oxG6Z_LFweaWHTC3EZEaPStNzjKeoUFsiAyQvhbCMdFMRszL1LFsHpXksHGGjZpf6IJpuJrO1ofzr4TfBE0QaeAYOmaC8mmiHHjTRDoJV-ZdVKuFuTOFpFg"/>
+</div>
+<div class="flex items-center gap-2 mb-3">
+<span class="bg-primary-container text-on-primary-container text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Language</span>
+<span class="text-outline text-xs">20 mins</span>
+</div>
+<h3 class="text-xl font-headline font-bold mb-2">Story Time</h3>
+<p class="text-on-surface-variant text-sm mb-4 leading-relaxed">Join a guided narrative journey that encourages emotional empathy and focus.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Mobile only via md:hidden) -->
+<div class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/90 dark:bg-stone-900/90 backdrop-blur-lg shadow-[0_-10px_30px_rgba(93,63,56,0.08)] z-50 rounded-t-[3rem]">
+<div class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 py-2 px-4">
+<span class="material-symbols-outlined">home</span>
+<span class="font-body text-[10px] font-bold uppercase tracking-wider mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 py-2 px-4">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body text-[10px] font-bold uppercase tracking-wider mt-1">Dash</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-orange-100 dark:bg-orange-900/50 text-orange-800 dark:text-orange-100 rounded-full py-2 px-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mood</span>
+<span class="font-body text-[10px] font-bold uppercase tracking-wider mt-1">Mood</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 py-2 px-4">
+<span class="material-symbols-outlined">extension</span>
+<span class="font-body text-[10px] font-bold uppercase tracking-wider mt-1">Act</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 py-2 px-4">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-body text-[10px] font-bold uppercase tracking-wider mt-1">Chat</span>
+</div>
+<div class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 py-2 px-4">
+<span class="material-symbols-outlined">family_restroom</span>
+<span class="font-body text-[10px] font-bold uppercase tracking-wider mt-1">Parent</span>
+</div>
+</div>
+</body></html>

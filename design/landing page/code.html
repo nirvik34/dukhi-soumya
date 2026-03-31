@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NeuroLearn - Learning Made Fun</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Caveat:wght@400;700&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-mesh {
+            background: radial-gradient(at 0% 0%, #c8efe3 0%, transparent 50%),
+                        radial-gradient(at 100% 0%, #fff8f1 0%, transparent 50%),
+                        radial-gradient(at 100% 100%, #ffdad2 0%, transparent 50%);
+        }
+        .organic-blob {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-fixed-variant": "#2a4d45",
+                        "on-tertiary-container": "#2a4d45",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fff8f1",
+                        "primary-fixed": "#ffdad2",
+                        "surface-dim": "#dfd9d1",
+                        "outline": "#926f67",
+                        "surface": "#fff8f1",
+                        "surface-container": "#f4ede5",
+                        "on-background": "#1e1b17",
+                        "surface-container-high": "#eee7df",
+                        "primary": "#a53b22",
+                        "on-primary-fixed-variant": "#84240d",
+                        "surface-container-highest": "#e8e1da",
+                        "on-primary-container": "#84240d",
+                        "secondary-fixed-dim": "#93d3c3",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#045044",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#00201a",
+                        "inverse-on-surface": "#f7f0e8",
+                        "on-secondary-container": "#045044",
+                        "primary-container": "#ffdad2",
+                        "on-tertiary-fixed": "#00201a",
+                        "secondary": "#28695c",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#ffb4a3",
+                        "secondary-container": "#afefdf",
+                        "tertiary-fixed-dim": "#a8cec3",
+                        "tertiary": "#42655c",
+                        "tertiary-fixed": "#c4ebdf",
+                        "on-surface-variant": "#5d3f38",
+                        "secondary-fixed": "#afefdf",
+                        "surface-container-low": "#f9f3eb",
+                        "outline-variant": "#e7bdb3",
+                        "on-surface": "#1e1b17",
+                        "inverse-surface": "#33302b",
+                        "on-primary-fixed": "#3d0700",
+                        "inverse-primary": "#ffb4a3",
+                        "tertiary-container": "#c4ebdf",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#fff8f1",
+                        "surface-variant": "#e8e1da",
+                        "surface-tint": "#a53b22"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Be Vietnam Pro"],
+                        "cursive": ["Caveat"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 dark:bg-stone-900/70 backdrop-blur-md shadow-[0_20px_40px_rgba(93,63,56,0.06)]">
+<div class="flex justify-between items-center px-8 h-20 w-full mx-auto">
+<div class="flex items-center gap-2 text-2xl font-['Noto_Serif'] italic font-bold text-stone-900 dark:text-stone-100">
+                NeuroLearn
+            </div>
+<div class="hidden md:flex items-center gap-8 font-['Plus_Jakarta_Sans'] font-medium text-sm">
+<a class="text-orange-700 dark:text-orange-300 border-b-4 border-orange-500 rounded-full pb-1 px-2 hover:bg-orange-50 transition-all duration-300" href="#">Home</a>
+<a class="text-stone-600 dark:text-stone-400 px-2 hover:bg-orange-50 hover:rounded-full transition-all duration-300" href="#">Dashboard</a>
+<a class="text-stone-600 dark:text-stone-400 px-2 hover:bg-orange-50 hover:rounded-full transition-all duration-300" href="#">Mood</a>
+<a class="text-stone-600 dark:text-stone-400 px-2 hover:bg-orange-50 hover:rounded-full transition-all duration-300" href="#">Activities</a>
+<a class="text-stone-600 dark:text-stone-400 px-2 hover:bg-orange-50 hover:rounded-full transition-all duration-300" href="#">Communicate</a>
+<a class="text-stone-600 dark:text-stone-400 px-2 hover:bg-orange-50 hover:rounded-full transition-all duration-300" href="#">Parent</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:scale-105 transition-transform">account_circle</button>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center px-8 lg:px-24 py-20 overflow-hidden bg-mesh">
+<div class="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-12 items-center w-full max-w-7xl mx-auto">
+<!-- Left Content -->
+<div class="space-y-8 z-10">
+<div class="inline-flex items-center px-4 py-1 rounded-full bg-primary-container text-primary font-cursive text-xl shadow-sm border border-outline-variant/20">
+                        ✨ Learning Made Fun
+                    </div>
+<h1 class="text-6xl lg:text-8xl font-headline font-bold text-on-background leading-tight">
+                        Welcome to <span class="italic text-primary font-normal">NeuroLearn</span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-lg font-body leading-relaxed">
+                        A sensory-friendly workspace designed to help every brain thrive. Discover activities tailored to your mood and unique learning style.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="px-8 py-4 bg-primary text-on-primary rounded-full font-bold shadow-lg hover:scale-105 active:scale-95 transition-all">
+                            Start Exploring
+                        </button>
+<button class="px-8 py-4 border-2 border-primary text-primary rounded-full font-bold hover:bg-primary/5 transition-all">
+                            View Activities
+                        </button>
+</div>
+<div class="flex flex-wrap gap-4 pt-4">
+<div class="px-4 py-2 bg-surface-container-high rounded-full flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-primary text-sm">auto_awesome</span>
+<span class="text-sm font-bold">12 New Tasks</span>
+</div>
+<div class="px-4 py-2 bg-secondary-container rounded-full flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="text-sm font-bold text-on-secondary-container">Daily Mood Set</span>
+</div>
+<div class="px-4 py-2 bg-tertiary-container rounded-full flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-sm">stars</span>
+<span class="text-sm font-bold text-on-tertiary-container">Pro Plan</span>
+</div>
+</div>
+</div>
+<!-- Right Visuals -->
+<div class="relative h-[500px] flex items-center justify-center">
+<!-- Background Organic Shape -->
+<div class="absolute inset-0 organic-blob bg-secondary-fixed-dim/30 animate-pulse mix-blend-multiply filter blur-3xl"></div>
+<div class="absolute inset-0 organic-blob bg-primary-fixed/30 scale-125 rotate-45 mix-blend-multiply filter blur-3xl"></div>
+<!-- Floating Cards Cluster -->
+<div class="relative w-full h-full">
+<!-- Card 1: Happy Today -->
+<div class="absolute top-10 left-0 bg-white/90 backdrop-blur px-6 py-4 rounded-lg shadow-[0_20px_40px_rgba(93,39,56,0.08)] transform -rotate-6 hover:scale-110 transition-transform duration-500">
+<div class="flex items-center gap-3">
+<span class="text-4xl">😊</span>
+<div>
+<p class="font-bold text-sm">Happy Today!</p>
+<p class="text-xs text-stone-500 italic">Feeling great</p>
+</div>
+</div>
+</div>
+<!-- Card 2: 90% Score -->
+<div class="absolute top-20 right-0 bg-white/90 backdrop-blur px-6 py-6 rounded-lg shadow-[0_20px_40px_rgba(93,39,56,0.08)] transform rotate-12 hover:scale-110 transition-transform duration-500 z-20">
+<div class="text-center">
+<p class="text-3xl font-bold text-secondary">90%</p>
+<p class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Focus Score</p>
+<div class="mt-2 h-1.5 w-full bg-stone-100 rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[90%]"></div>
+</div>
+</div>
+</div>
+<!-- Card 3: Level 5 -->
+<div class="absolute bottom-10 left-10 bg-primary text-on-primary px-8 py-4 rounded-lg shadow-[0_20px_40px_rgba(93,39,56,0.12)] transform rotate-3 hover:scale-110 transition-transform duration-500">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="text-xl font-bold">Level 5</span>
+</div>
+</div>
+<!-- Card 4: 8 Activities -->
+<div class="absolute bottom-20 right-10 bg-tertiary-container text-on-tertiary-container p-6 rounded-lg shadow-[0_20px_40px_rgba(93,39,56,0.08)] transform -rotate-12 hover:scale-110 transition-transform duration-500">
+<div class="flex flex-col gap-1">
+<span class="material-symbols-outlined text-3xl">extension</span>
+<p class="font-bold">8 Activities</p>
+<p class="text-xs opacity-70">Completed this week</p>
+</div>
+</div>
+<!-- Main Image Decoration -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-xl overflow-hidden shadow-2xl z-0">
+<img class="w-full h-full object-cover" data-alt="Happy diverse children smiling and learning with educational blocks in a sunlit warm colored room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHFagU-b8CQF1QpUzP_ww2VPaG2gbktp4Jv0ufKqMntYKwoovMylqsjqjl-DcqB8bNc7UNCgFZB4QTdeQAkWoF30tZENirDHMpVa13ykhI_sW1RVfNTtbRdR8-Kuy3VxJhc7z4VkcBQYcZKzGTC7iXbffttFmxvxGv3BSISBXiuthrY6AO5_5z4TDXCceb6EkuBIemR8zZXTbnihmwZiCrbJM2Jt_je8cZMz0uFExQwOh5wFQw_Y3i21i2O3LTP3og0uydr9pLx7Y"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Wavy Transition -->
+<div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] fill-surface-container-low">
+<svg class="relative block w-full h-24" preserveaspectratio="none" viewbox="0 0 1200 120">
+<path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.43,181.69,113.85,321.39,56.44Z"></path>
+</svg>
+</div>
+</section>
+<!-- Path Selection Section -->
+<section class="bg-surface-container-low py-32 px-8 lg:px-24 relative">
+<!-- Doodle Arrow -->
+<div class="absolute top-10 left-1/4 transform -rotate-12 hidden lg:block">
+<svg class="text-primary/40 stroke-current fill-none stroke-2" height="100" viewbox="0 0 100 100" width="100">
+<path d="M10,80 Q40,10 90,20 M80,10 L90,20 L80,30"></path>
+</svg>
+<span class="font-cursive text-primary absolute -bottom-6 -left-4 whitespace-nowrap">Choose your adventure!</span>
+</div>
+<div class="max-w-7xl mx-auto text-center mb-16">
+<h2 class="text-4xl lg:text-5xl font-headline font-bold mb-4 text-on-background">Choose Your Path</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Select a module to begin your learning journey today. Each section is designed with sensory comfort in mind.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+<!-- Path Card: Mood -->
+<div class="group bg-surface rounded-xl p-10 shadow-sm hover:shadow-[0_20px_40px_rgba(93,39,56,0.06)] hover:-translate-y-2 transition-all duration-300">
+<div class="w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">mood</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Mood Check</h3>
+<p class="text-sm text-on-surface-variant mb-6">Tell us how you're feeling to get customized activity picks.</p>
+<a class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">Explore <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+<!-- Path Card: Dashboard -->
+<div class="group bg-surface rounded-xl p-10 shadow-sm hover:shadow-[0_20px_40px_rgba(93,39,56,0.06)] hover:-translate-y-2 transition-all duration-300">
+<div class="w-14 h-14 rounded-full bg-primary-container flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary">dashboard</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Dashboard</h3>
+<p class="text-sm text-on-surface-variant mb-6">Track your stars, levels, and upcoming activities all in one place.</p>
+<a class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">Explore <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+<!-- Path Card: Activities -->
+<div class="group bg-surface rounded-xl p-10 shadow-sm hover:shadow-[0_20px_40px_rgba(93,39,56,0.06)] hover:-translate-y-2 transition-all duration-300">
+<div class="w-14 h-14 rounded-full bg-tertiary-container flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-tertiary">extension</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Activities</h3>
+<p class="text-sm text-on-surface-variant mb-6">Play games and complete tasks built for fun and learning.</p>
+<a class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">Explore <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+<!-- Path Card: Communicate -->
+<div class="group bg-surface rounded-xl p-10 shadow-sm hover:shadow-[0_20px_40px_rgba(93,39,56,0.06)] hover:-translate-y-2 transition-all duration-300">
+<div class="w-14 h-14 rounded-full bg-orange-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-orange-600">forum</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Communicate</h3>
+<p class="text-sm text-on-surface-variant mb-6">Connect with parents or educators through visual messages.</p>
+<a class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">Explore <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+</section>
+<!-- Trust Strip Section -->
+<section class="py-20 px-8 bg-surface border-t border-outline-variant/10">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 items-center text-center opacity-80">
+<div>
+<p class="text-4xl font-headline font-bold text-primary mb-1">500+</p>
+<p class="text-xs uppercase tracking-widest font-bold text-on-surface-variant">Kids Learning</p>
+</div>
+<div>
+<p class="text-4xl font-headline font-bold text-secondary mb-1">3k+</p>
+<p class="text-xs uppercase tracking-widest font-bold text-on-surface-variant">Activities Done</p>
+</div>
+<div>
+<p class="text-4xl font-headline font-bold text-tertiary mb-1">98%</p>
+<p class="text-xs uppercase tracking-widest font-bold text-on-surface-variant">Parent Satisfaction</p>
+</div>
+<div>
+<p class="text-4xl font-headline font-bold text-orange-500 mb-1">24/7</p>
+<p class="text-xs uppercase tracking-widest font-bold text-on-surface-variant">Support Access</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/90 dark:bg-stone-900/90 backdrop-blur-lg shadow-[0_-10px_30px_rgba(93,63,56,0.08)] rounded-t-[3rem] z-50">
+<a class="flex flex-col items-center justify-center bg-orange-100 dark:bg-orange-900/50 text-orange-800 dark:text-orange-100 rounded-full py-2 px-4 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-bold uppercase tracking-wider">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 py-2 px-4 hover:bg-orange-50 transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-bold uppercase tracking-wider">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 py-2 px-4 hover:bg-orange-50 transition-all" href="#">
+<span class="material-symbols-outlined">mood</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-bold uppercase tracking-wider">Mood</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 py-2 px-4 hover:bg-orange-50 transition-all" href="#">
+<span class="material-symbols-outlined">extension</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-bold uppercase tracking-wider">Activities</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-500 dark:text-stone-400 py-2 px-4 hover:bg-orange-50 transition-all" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-bold uppercase tracking-wider">Chat</span>
+</a>
+</nav>
+<!-- Footer Decoration -->
+<footer class="bg-surface pb-32 pt-20 px-8">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 border-t border-outline-variant/10 pt-12">
+<div class="font-headline italic font-bold text-2xl text-on-background">NeuroLearn</div>
+<div class="flex gap-8 text-sm font-bold text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms</a>
+<a class="hover:text-primary transition-colors" href="#">Safety Guide</a>
+</div>
+<p class="text-xs text-stone-400">© 2024 NeuroLearn. All rights reserved.</p>
+</div>
+</footer>
+</body></html>
