@@ -15,6 +15,13 @@ export default function Dashboard() {
         const userRes = await fetch(`${API_BASE}/auth/me`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
+        
+        if (userRes.status === 401) {
+          localStorage.removeItem('token');
+          window.location.href = '/login';
+          return;
+        }
+
         const userData = await userRes.json();
         if (userData.status === 'success') setUser(userData.user);
 
