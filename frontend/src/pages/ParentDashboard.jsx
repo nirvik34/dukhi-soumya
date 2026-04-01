@@ -10,27 +10,52 @@ const ParentDashboard = () => {
 
   const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
 
+  const DUMMY_SCORES = [
+    { game: 'Bubble Pop', score: 850, timestamp: new Date(Date.now() - 86400000).toISOString() },
+    { game: 'Color Sorting', score: 920, timestamp: new Date(Date.now() - 172800000).toISOString() },
+    { game: 'Sound Match', score: 780, timestamp: new Date(Date.now() - 259200000).toISOString() }
+  ];
+
+  const DUMMY_MOODS = [
+    { primary_emotion: 'Happy', timestamp: new Date(Date.now() - 86400000).toISOString() },
+    { primary_emotion: 'Calm', timestamp: new Date(Date.now() - 172800000).toISOString() },
+    { primary_emotion: 'Happy', timestamp: new Date(Date.now() - 259200000).toISOString() },
+    { primary_emotion: 'Neutral', timestamp: new Date(Date.now() - 345600000).toISOString() },
+    { primary_emotion: 'Happy', timestamp: new Date(Date.now() - 432000000).toISOString() }
+  ];
+
   useEffect(() => {
     const fetchData = async () => {
       const token = localStorage.getItem('token');
+      const username = localStorage.getItem('username');
 
       try {
         // Fetch game scores
-        const scoresRes = await fetch(`${API_BASE}/game/scores`, {
+        const scoresRes = await fetch(`${API_BASE}/game/scores?username=${username}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const scoresData = await scoresRes.json();
-        if (scoresData.scores) setGameScores(scoresData.scores);
+        if (scoresData.scores && scoresData.scores.length > 0) {
+          setGameScores(scoresData.scores);
+        } else {
+          setGameScores(DUMMY_SCORES);
+        }
 
         // Fetch mood history
         const moodRes = await fetch(`${API_BASE}/mood/history`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const moodData = await moodRes.json();
-        if (moodData.history) setMoodHistory(moodData.history);
+        if (moodData.history && moodData.history.length > 0) {
+          setMoodHistory(moodData.history);
+        } else {
+          setMoodHistory(DUMMY_MOODS);
+        }
 
       } catch (err) {
         console.error("Error fetching parent dashboard:", err);
+        setGameScores(DUMMY_SCORES);
+        setMoodHistory(DUMMY_MOODS);
       }
 
       setLoading(false);

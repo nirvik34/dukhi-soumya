@@ -7,9 +7,9 @@ __pycache__/
 .DS_Store
 dist/
 build/
-.env
 data.json
 package-lock.json
 frontend/node_modules/
 backend/venv/
 backend/__pycache__/
+config.bat
