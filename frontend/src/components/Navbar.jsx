@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
+  const token = localStorage.getItem('token');
+
   return (
     <nav className="navbar-container">
       <div className="navbar-logo">
@@ -18,10 +20,12 @@ const Navbar = () => {
         <NavLink to="/parent" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>Parent</NavLink>
       </div>
 
-      <div className="auth-buttons">
-        <NavLink to="/login" className="login-link">Sign In</NavLink>
-        <NavLink to="/register" className="register-link">Get Started</NavLink>
-      </div>
+      {!token && (
+        <div className="auth-buttons">
+          <NavLink to="/login" className="login-link">Sign In</NavLink>
+          <NavLink to="/register" className="register-link">Get Started</NavLink>
+        </div>
+      )}
     </nav>
   );
 };

@@ -1,11 +1,62 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './MoodDetection.css';
+
+const ALL_GAMES = [
+  {
+    id: 'bubble-pop',
+    title: 'Bubble Pop',
+    description: 'Pop floating bubbles! Smaller = more points.',
+    icon: 'bubble_chart',
+    duration: '30s',
+    difficulty: 'Easy',
+    category: 'Energizing',
+    path: '/games/bubble-pop'
+  },
+  {
+    id: 'sound-match',
+    title: 'Sound Match',
+    description: 'Listen & repeat the rhythm pattern.',
+    icon: 'music_note',
+    duration: '5m',
+    difficulty: 'Medium',
+    category: 'Interactive',
+    path: '/games/sound-match'
+  },
+  {
+    id: 'color-sorting',
+    title: 'Color Sorting',
+    description: 'Sort colors into the right buckets.',
+    icon: 'palette',
+    duration: '3m',
+    difficulty: 'Easy',
+    category: 'Calming',
+    path: '/games/color-sorting'
+  },
+  {
+    id: 'feeling-journal',
+    title: 'Feeling Journal',
+    description: 'Check in with your emotions.',
+    icon: 'auto_stories',
+    duration: '5m',
+    difficulty: 'Calm',
+    category: 'Calming',
+    path: '/games/feeling-journal'
+  }
+];
 
 const MoodDetection = () => {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const navigate = useNavigate();
+
+  const filteredGames = useMemo(() => {
+    if (selectedCategory === 'All') return ALL_GAMES;
+    return ALL_GAMES.filter(game => game.category === selectedCategory);
+  }, [selectedCategory]);
 
   const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
 
@@ -151,15 +202,39 @@ const MoodDetection = () => {
             <span className="hand-subtitle">Personalized for You</span>
             <h2>Suggested Activities</h2>
           </div>
-          <button className="view-all-btn">
-            View All Activities <span className="material-symbols-outlined">arrow_forward</span>
-          </button>
+          
+          <div className="category-filters">
+            {['All', 'Calming', 'Energizing', 'Interactive'].map(cat => (
+              <button 
+                key={cat} 
+                className={`filter-btn ${selectedCategory === cat ? 'active' : ''}`}
+                onClick={() => setSelectedCategory(cat)}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="activities-grid">
-           <ActivityCard title="Color Matching" category="Cognitive" img="https://lh3.googleusercontent.com/aida-public/AB6AXuBe15522zdTh70SGebfxuh6DtXJ0UzftHzbXwnBhpYCp8A1HnJWJ8rbK7aUuCShUTVs1Ks8rHjepA3goqYUrGTEOsGfIk9zgID1akWzmxphMSABPIDvlYm7S3zEiuQNx8kYvufBEMe6RCPqfiVlKFhm0D0zqnIjdhM5Bkg3KWBK3skSMrVTWm2OaS21AbDhnCzGpuFuivcK1IbMTkDsLFFC6lo_Lwx22TfXEbiieDHWuAuxEvZLlwXgsU-xxOUNaY_5Lb0RwqvSamg" />
-           <ActivityCard title="Music & Rhythm" category="Sensory" img="https://lh3.googleusercontent.com/aida-public/AB6AXuBuz8XeDGvHY84wEGttGPzWmB3WZNOc3HSAzKXDawNNzLJ7AfRj9igKU6k3W4SA5fG0TZM_wOsCRNW9oX1SiCJJUw5HmpzdunwuSEeovQNIpErM3jVf_oMKHFiCKIpQt-w0gZ-TpEBzupHCUVrM5CTVvkjVVvpqxgY4nPfTXgLPwl-g5ny2NQ0N3W3vCPllNS0OYO_ffXo-usFUZdLod9_7aooABRM0RqCjm0KOmM2UxdZsxmgF_v1MHxZgZ1eJNkJbyj71n4Z4zFw" />
-           <ActivityCard title="Story Time" category="Language" img="https://lh3.googleusercontent.com/aida-public/AB6AXuAnUp6HkGpOBkqgmoUaFHZowmMQsmY5ejz3pMdRwnjoeFOAd8Twp-ysS1oeAcWbzMFhhi4BZwljNNKRkfT2KzfSVE4Nz8oBwgnjWffrsQb6YFcdU8ENhrxBOD_EvdqYxs1BGzfrvqzJjmAkmz-CJty9oxG6Z_LFweaWHTC3EZEaPStNzjKeoUFsiAyQvhbCMdFMRszL1LFsHpXksHGGjZpf6IJpuJrO1ofzr4TfBE0QaeAYOmaC8mmiHHjTRDoJV-ZdVKuFuTOFpFg" />
+          {filteredGames.map(game => (
+            <div key={game.id} className="activity-card shadow-soft game-card">
+              <div className="game-icon-wrapper">
+                <span className="material-symbols-outlined">{game.icon}</span>
+              </div>
+              <div className="activity-content">
+                <div className="activity-badge-row">
+                  <span className="badge">{game.category}</span>
+                  <span className="time">{game.duration} • {game.difficulty}</span>
+                </div>
+                <h3>{game.title}</h3>
+                <p>{game.description}</p>
+                <button className="play-now-btn" onClick={() => navigate(game.path)}>
+                  Play Now <span className="material-symbols-outlined">play_circle</span>
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </div>
